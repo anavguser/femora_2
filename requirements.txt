@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+fastapi-cors
+sqlalchemy
+pandas
+numpy
+openpyxl
+python-multipart
