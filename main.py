@@ -40,7 +40,11 @@ import json
 import os
 app = FastAPI()
 
-# Add CORS middleware
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
@@ -49,10 +53,6 @@ app.add_middleware(
     allow_methods=["*"],  # Allows all methods
     allow_headers=["*"],  # Allows all headers
 )
-
-# Mount the React app
-app.mount("/", StaticFiles(directory="frontend/build", html=True), name="frontend")
-
 
 def process_mtr(mtr):
     # Step 0: Rename the columns
